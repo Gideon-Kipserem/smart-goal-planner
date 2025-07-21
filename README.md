@@ -78,7 +78,7 @@ fetch("https://server-31wa.onrender.com/goals")
 - Improve mobile responsiveness
 - Display goal completion history
 
----
+
 
 ## License
 
