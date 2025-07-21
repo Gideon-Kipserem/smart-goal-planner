@@ -31,8 +31,16 @@ function App() {
     });
   }
 
-  function handleEditGoal(goal) {
-    setGoalToEdit(goal);
+  function handleEditGoal(goalOrUpdatedGoal) {
+    if (goalOrUpdatedGoal.targetAmount) {
+      setGoals((prevGoals) =>
+        prevGoals.map((g) =>
+          g.id === goalOrUpdatedGoal.id ? goalOrUpdatedGoal : g
+        )
+      );
+    } else {
+      setGoalToEdit(goalOrUpdatedGoal);
+    }
   }
 
   function handleUpdateGoal(updatedGoal) {
@@ -53,48 +61,35 @@ function App() {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-4">Smart Goal Planner</h1>
+    <div className="max-w-3xl mx-auto p-4">
+      <h1 className="text-2xl font-semibold text-center mb-6">Smart Goal Planner</h1>
 
       <Overview goals={goals} />
+
       <AddGoalForm onAddGoal={handleAddGoal} />
 
       {goalToEdit && (
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            if (
-              goalToEdit.name.trim() === "" ||
-              !goalToEdit.targetAmount ||
-              !goalToEdit.deadline
-            ) {
-              alert("Please fill all required fields.");
-              return;
-            }
             handleUpdateGoal(goalToEdit);
           }}
-          className="bg-gray-100 p-4 rounded mb-4"
+          className="bg-gray-50 p-4 border rounded mb-6"
         >
-          <h2 className="text-lg font-bold mb-2">Edit Goal</h2>
-
+          <h2 className="text-lg font-medium mb-3">Edit Goal</h2>
           <input
-            className="block mb-2 w-full border p-2"
+            className="w-full border p-2 rounded mb-2"
             type="text"
-            value={goalToEdit.name || ""}
+            value={goalToEdit.name}
             onChange={(e) =>
               setGoalToEdit({ ...goalToEdit, name: e.target.value })
             }
             required
           />
-
           <input
-            className="block mb-2 w-full border p-2"
+            className="w-full border p-2 rounded mb-2"
             type="number"
-            value={
-              Number.isNaN(goalToEdit.targetAmount)
-                ? ""
-                : goalToEdit.targetAmount
-            }
+            value={goalToEdit.targetAmount}
             onChange={(e) =>
               setGoalToEdit({
                 ...goalToEdit,
@@ -103,21 +98,16 @@ function App() {
             }
             required
           />
-
           <input
-            className="block mb-2 w-full border p-2"
+            className="w-full border p-2 rounded mb-3"
             type="date"
-            value={goalToEdit.deadline || ""}
+            value={goalToEdit.deadline}
             onChange={(e) =>
               setGoalToEdit({ ...goalToEdit, deadline: e.target.value })
             }
             required
           />
-
-          <button
-            className="bg-blue-600 text-white px-4 py-2 rounded"
-            type="submit"
-          >
+          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" type="submit">
             Update Goal
           </button>
         </form>

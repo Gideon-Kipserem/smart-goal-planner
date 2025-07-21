@@ -5,31 +5,21 @@ function AddGoalForm({ onAddGoal }) {
     name: "",
     targetAmount: "",
     deadline: "",
-    savedAmount: "",
+    savedAmount: 0,
   });
 
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]:
-        name === "targetAmount" || name === "savedAmount"
-          ? parseFloat(value)
-          : value,
+      [name]: name === "targetAmount" || name === "savedAmount"
+        ? parseFloat(value)
+        : value,
     }));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    if (
-      formData.name.trim() === "" ||
-      !formData.targetAmount ||
-      !formData.deadline
-    ) {
-      alert("Please fill all required fields!");
-      return;
-    }
 
     const newGoal = {
       ...formData,
@@ -50,23 +40,20 @@ function AddGoalForm({ onAddGoal }) {
           name: "",
           targetAmount: "",
           deadline: "",
-          savedAmount: "",
+          savedAmount: 0,
         });
       });
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white shadow-md p-6 rounded mb-6"
-    >
-      <h2 className="text-xl font-semibold mb-4">Add New Goal</h2>
+    <form onSubmit={handleSubmit} className="bg-white border p-4 rounded mb-6">
+      <h2 className="text-lg font-medium mb-3">Add New Goal</h2>
 
       <input
         type="text"
         name="name"
         placeholder="Goal name"
-        className="block w-full border p-2 mb-3"
+        className="w-full border p-2 rounded mb-3"
         value={formData.name}
         onChange={handleChange}
         required
@@ -76,8 +63,8 @@ function AddGoalForm({ onAddGoal }) {
         type="number"
         name="targetAmount"
         placeholder="Target amount (KES)"
-        className="block w-full border p-2 mb-3"
-        value={Number.isNaN(formData.targetAmount) ? "" : formData.targetAmount}
+        className="w-full border p-2 rounded mb-3"
+        value={formData.targetAmount}
         onChange={handleChange}
         required
       />
@@ -86,15 +73,15 @@ function AddGoalForm({ onAddGoal }) {
         type="number"
         name="savedAmount"
         placeholder="Optional: Initial deposit (KES)"
-        className="block w-full border p-2 mb-3"
-        value={Number.isNaN(formData.savedAmount) ? "" : formData.savedAmount}
+        className="w-full border p-2 rounded mb-3"
+        value={formData.savedAmount}
         onChange={handleChange}
       />
 
       <input
         type="date"
         name="deadline"
-        className="block w-full border p-2 mb-4"
+        className="w-full border p-2 rounded mb-4"
         value={formData.deadline}
         onChange={handleChange}
         required
