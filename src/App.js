@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddGoalForm from "./components/AddGoalForm";
 import GoalList from "./components/GoalList";
+import Overview from "./components/Overview";
 
 function App() {
   const [goals, setGoals] = useState([]);
@@ -64,6 +65,8 @@ function App() {
         onUpdateGoal={handleUpdateGoal}
         cancelEdit={() => setEditingGoal(null)}
       />
+
+      <Overview goals={goals} />
 
       <h2 className="text-xl font-semibold mb-4">Your Goals</h2>
       <GoalList
