@@ -1,4 +1,4 @@
-// src/components/Overview.js
+
 import React from "react";
 
 function Overview({ goals }) {

@@ -1,4 +1,4 @@
-// src/components/GoalList.js
+
 import React from "react";
 import GoalItem from "./GoalItem";
 

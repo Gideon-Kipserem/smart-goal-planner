@@ -19,7 +19,7 @@ function GoalItem({ goal, onDelete, onEdit, onDeposit }) {
       savedAmount: (goal.savedAmount || 0) + amount,
     };
 
-    // Send updated data to parent component
+    // Send updated data 
     onDeposit(updatedGoal);
     setDepositAmount("");
   };
@@ -42,9 +42,9 @@ function GoalItem({ goal, onDelete, onEdit, onDeposit }) {
         </div>
         <p className="text-xs text-gray-600 mt-1">Progress: {progress.toFixed(1)}%</p>
 
-        {/* Warning if target is reached or exceeded */}
+        {/* Warning if target is reached */}
         {goal.savedAmount >= goal.targetAmount && (
-          <p className="text-red-600 text-xs mt-1">🎯 Target achieved or exceeded!</p>
+          <p className="text-red-600 text-xs mt-1"> Target achieved or exceeded!</p>
         )}
       </div>
 
@@ -65,7 +65,7 @@ function GoalItem({ goal, onDelete, onEdit, onDeposit }) {
         </button>
       </form>
 
-      {/* Action Buttons */}
+      {/* Action Button */}
       <div className="mt-4 flex gap-2">
         <button
           onClick={() => onEdit(goal)}
