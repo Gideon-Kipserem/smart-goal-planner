@@ -91,4 +91,4 @@ This project is licensed for educational use during the Phase 2 code challenge.
 
 ## Author
 
-This project was created with love by Gideon Kimaiyo.
+This project was created  by Gideon Kimaiyo.
