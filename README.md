@@ -20,6 +20,22 @@ Smart Goal Planner is a simple savings goal management app built with React and 
 - Clean UI: Styled using Tailwind CSS
 
 ---
+## Live link
+
+This app is live on
+
+### Live Backend
+
+The backend is deployed on Render at:
+
+https://server-31wa.onrender.com
+
+All frontend API requests should point to this base URL. For example:
+
+fetch("https://server-31wa.onrender.com/goals")
+
+---
+
 
 ## Technologies Used
 
@@ -35,8 +51,7 @@ Smart Goal Planner is a simple savings goal management app built with React and 
 ### Backend Setup
 
 1. Clone the repo:
-   git clone https://github.com/Gideon-Kipserem/smartGoalPlanner-server.git
-   cd smartGoalPlanner-server
+  
 
 2. Install dependencies:
    npm install
@@ -59,17 +74,7 @@ Smart Goal Planner is a simple savings goal management app built with React and 
 
 ## Deployment
 
-### Live Backend
 
-The backend is deployed on Render at:
-
-https://server-31wa.onrender.com
-
-All frontend API requests should point to this base URL. For example:
-
-fetch("https://server-31wa.onrender.com/goals")
-
----
 
 ## Future Improvements
 
