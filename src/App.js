@@ -9,7 +9,7 @@ function App() {
 
   // Fetch goals on load
   useEffect(() => {
-    fetch("http://localhost:3001/goals")
+    fetch("https://server-31wa.onrender.com/goals")
       .then((res) => res.json())
       .then(setGoals)
       .catch((err) => console.error("Failed to load goals:", err));
@@ -22,7 +22,7 @@ function App() {
 
   // Delete goal
   function handleDeleteGoal(id) {
-    fetch(`http://localhost:3001/goals/${id}`, {
+    fetch(`https://server-31wa.onrender.com/goals/${id}`, {
       method: "DELETE",
     }).then(() => {
       setGoals((prev) => prev.filter((goal) => goal.id !== id));
@@ -36,7 +36,7 @@ function App() {
 
   // Update goal after editing
   function handleUpdateGoal(updatedGoal) {
-    fetch(`http://localhost:3001/goals/${updatedGoal.id}`, {
+    fetch(`https://server-31wa.onrender.com/goals/${updatedGoal.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

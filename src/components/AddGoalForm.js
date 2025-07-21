@@ -36,7 +36,7 @@ function AddGoalForm({ onAddGoal, editingGoal, onUpdateGoal, cancelEdit }) {
     if (editingGoal) {
       onUpdateGoal(goalToSubmit);
     } else {
-      fetch("http://localhost:3001/goals", {
+      fetch("https://server-31wa.onrender.com/goals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

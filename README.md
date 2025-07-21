@@ -1,66 +1,89 @@
 # Smart Goal Planner
 
-A React-based application to help users create, manage, and track their savings goals. Users can add goals, edit or delete them, deposit funds, and view overall progress.
+Smart Goal Planner is a simple savings goal management app built with React and JSON Server. It allows users to:
+
+- View, create, edit, and delete savings goals
+- Track progress towards a target amount
+- Deposit money to each goal
+- Categorize goals and view deadlines
+- Get an overview of total savings and targets
+
+---
 
 ## Features
 
-- Add new goals with name, target amount, deadline, and category
-- Edit and delete existing goals
-- Deposit funds toward goals and track progress
-- View total goals, total saved amount, and total target amount in the overview
-- Responsive and clean interface styled with Tailwind CSS
-- Uses json-server for persistent data
+- CRUD Functionality: Add, update, and delete goals
+- Progress Bar: Visual feedback on savings progress
+- Deposit System: Add funds to each goal
+- Overview Section: Total number of goals, total saved, and target sum
+- Edit Mode: Reuse the form to update an existing goal
+- Clean UI: Styled using Tailwind CSS
 
-## Getting Started
+---
 
-### Prerequisites
+## Technologies Used
 
-- Node.js (v18 or later)
-- json-server (installed globally or locally)
+- React
+- JSON Server
+- Tailwind CSS
+- Render (Backend deployment)
 
-### Installation
+---
 
-1. Clone the repository:
-   git clone https://github.com/your-username/smart-goal-planner.git
-   cd smart-goal-planner
+## Getting Started Locally
+
+### Backend Setup
+
+1. Clone the repo:
+   git clone https://github.com/Gideon-Kipserem/smartGoalPlanner-server.git
+   cd smartGoalPlanner-server
 
 2. Install dependencies:
    npm install
 
-3. Start the mock API server:
+3. Run JSON Server:
    npx json-server --watch db.json --port 3001
 
-4. Start the React development server:
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   cd smartGoalPlanner-frontend
+
+2. Install dependencies:
+   npm install
+
+3. Start the app:
    npm start
 
-The app will be available at http://localhost:3000 and will fetch data from http://localhost:3001/goals.
+---
 
-## Project Structure
+## Deployment
 
-src/
-├── App.js
-├── components/
-│   ├── AddGoalForm.js
-│   ├── GoalItem.js
-│   ├── GoalList.js
-│   └── Overview.js
-├── index.js
-└── index.css
+### Live Backend
 
-## Technologies Used
+The backend is deployed on Render at:
 
-- React (with useState and useEffect hooks)
-- Tailwind CSS
-- json-server for mock backend
-- JavaScript (ES6)
+https://server-31wa.onrender.com
 
-## Potential Improvements
+All frontend API requests should point to this base URL. For example:
 
-- Add filtering and search functionality
-- Add goal categories and sorting
-- Add authentication to support multiple users
-- Mobile-first layout and UI polish
+fetch("https://server-31wa.onrender.com/goals")
+
+---
+
+## Future Improvements
+
+- Add user authentication
+- Add categories filtering
+- Improve mobile responsiveness
+- Display goal completion history
+
+---
+
+## License
+
+This project is licensed for educational use during the Phase 2 code challenge.
 
 ## Author
 
-- GitHub: https://github.com/Gideon-Kipserem
+This project was created with love by Gideon Kimaiyo.
