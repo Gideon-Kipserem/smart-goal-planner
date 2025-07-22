@@ -5,7 +5,8 @@ function AddGoalForm({ onAddGoal, editingGoal, onUpdateGoal, cancelEdit }) {
     name: "",
     targetAmount: "",
     deadline: "",
-    savedAmount: 0,
+    savedAmount: "",
+    category: "",
   });
 
   useEffect(() => {
@@ -53,7 +54,8 @@ function AddGoalForm({ onAddGoal, editingGoal, onUpdateGoal, cancelEdit }) {
       name: "",
       targetAmount: "",
       deadline: "",
-      savedAmount: 0,
+      savedAmount: "", 
+      category: "",
     });
   }
 
@@ -72,6 +74,17 @@ function AddGoalForm({ onAddGoal, editingGoal, onUpdateGoal, cancelEdit }) {
         onChange={handleChange}
         required
       />
+      
+      <input
+  type="text"
+  name="category"
+  placeholder="e.g. Emergency, Vacation, Investment"
+  className="w-full border p-2 rounded mb-3 placeholder-gray-400"
+  value={formData.category}
+  onChange={handleChange}
+/>
+
+
 
       <input
         type="number"
